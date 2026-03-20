@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Evaluación de Compatibilidad</title>
+  <title>Oráculo Maya</title>
   <style>
     body {
       font-family: Arial;
       text-align: center;
-      background: #0f172a;
-      color: white;
+      background: #1a1a2e;
+      color: #f5f5f5;
       padding: 40px;
     }
     button {
@@ -16,7 +16,7 @@
       font-size: 16px;
       border: none;
       border-radius: 8px;
-      background: #22c55e;
+      background: #facc15;
       color: black;
       cursor: pointer;
       margin-top: 20px;
@@ -24,13 +24,13 @@
     #progress {
       width: 0%;
       height: 20px;
-      background: #22c55e;
+      background: #facc15;
       margin-top: 20px;
       transition: 0.3s;
     }
     #bar {
       width: 100%;
-      background: #1e293b;
+      background: #333;
       margin-top: 20px;
     }
     .hidden {
@@ -40,10 +40,10 @@
 </head>
 <body>
 
-<h1>🔍 Sistema de Evaluación Avanzado</h1>
-<p>Analizando compatibilidad con <b>Sol</b>...</p>
+<h1>🔮 Oráculo de Astrología Maya</h1>
+<p>Consultando energías ancestrales para <b>Sol</b>...</p>
 
-<button onclick="start()">Iniciar análisis</button>
+<button onclick="start()">Consultar destino</button>
 
 <div id="bar">
   <div id="progress"></div>
@@ -52,11 +52,14 @@
 <h2 id="status"></h2>
 
 <div id="result" class="hidden">
-  <h1>✅ Resultado: 99.8% Compatible</h1>
-  <p>Conclusión del sistema:</p>
-  <p><b>Es obligatorio invitar a Sol a una cita.</b></p>
+  <h1>🌞 Resultado del Oráculo</h1>
+  <p>Los antiguos mayas han hablado:</p>
 
-  <button onclick="aceptar()">Aceptar misión</button>
+  <p><b>“Cuando Sol aparece en tu vida, no es coincidencia… es señal de cita.”</b></p>
+
+  <p>Probabilidad cósmica de que digas que sí: <b>99.7%</b></p>
+
+  <button onclick="aceptar()">Aceptar el destino</button>
 </div>
 
 <script>
@@ -65,22 +68,30 @@ function start() {
   let status = document.getElementById("status");
   let width = 0;
 
+  let frases = [
+    "Leyendo calendario maya...",
+    "Interpretando energías cósmicas...",
+    "Consultando a los ancestros...",
+    "Descifrando señales del universo...",
+    "Confirmando nivel de buena onda de Sol..."
+  ];
+
   let interval = setInterval(() => {
-    width += Math.random() * 10;
+    width += Math.random() * 12;
     progress.style.width = width + "%";
 
     if (width > 100) {
       clearInterval(interval);
-      status.innerText = "Análisis completo";
+      status.innerText = "Profecía completada";
       document.getElementById("result").classList.remove("hidden");
     } else {
-      status.innerText = "Procesando... " + Math.floor(width) + "%";
+      status.innerText = frases[Math.floor(Math.random() * frases.length)];
     }
-  }, 300);
+  }, 400);
 }
 
 function aceptar() {
-  alert("Perfecto 😎 Ahora solo falta que digas que sí.");
+  alert("Perfecto 😎 Ahora solo falta coordinar esa cita.");
 }
 </script>
 

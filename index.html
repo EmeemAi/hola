@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Evaluación de Compatibilidad</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #0f172a;
+      color: white;
+      padding: 40px;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #22c55e;
+      color: black;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #progress {
+      width: 0%;
+      height: 20px;
+      background: #22c55e;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    #bar {
+      width: 100%;
+      background: #1e293b;
+      margin-top: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🔍 Sistema de Evaluación Avanzado</h1>
+<p>Analizando compatibilidad con <b>Sol</b>...</p>
+
+<button onclick="start()">Iniciar análisis</button>
+
+<div id="bar">
+  <div id="progress"></div>
+</div>
+
+<h2 id="status"></h2>
+
+<div id="result" class="hidden">
+  <h1>✅ Resultado: 99.8% Compatible</h1>
+  <p>Conclusión del sistema:</p>
+  <p><b>Es obligatorio invitar a Sol a una cita.</b></p>
+
+  <button onclick="aceptar()">Aceptar misión</button>
+</div>
+
+<script>
+function start() {
+  let progress = document.getElementById("progress");
+  let status = document.getElementById("status");
+  let width = 0;
+
+  let interval = setInterval(() => {
+    width += Math.random() * 10;
+    progress.style.width = width + "%";
+
+    if (width > 100) {
+      clearInterval(interval);
+      status.innerText = "Análisis completo";
+      document.getElementById("result").classList.remove("hidden");
+    } else {
+      status.innerText = "Procesando... " + Math.floor(width) + "%";
+    }
+  }, 300);
+}
+
+function aceptar() {
+  alert("Perfecto 😎 Ahora solo falta que digas que sí.");
+}
+</script>
+
+</body>
+</html>
